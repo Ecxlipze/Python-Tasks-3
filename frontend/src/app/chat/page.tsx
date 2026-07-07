@@ -36,26 +36,8 @@ export default function ChatPage() {
       console.log("✅ Connected to General Room");
     };
 
-    socket.current.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: Date.now(),
-          sender: "Live",
-          content: data.message,
-          timestamp: new Date().toISOString(),
-        },
-      ]);
-    };
-
     socket.current.onclose = () => {
       console.log("❌ Disconnected");
-    };
-
-    socket.current.onerror = (error) => {
-      console.error("WebSocket Error:", error);
     };
 
     return () => {
@@ -114,7 +96,7 @@ export default function ChatPage() {
           type="text"
           placeholder="Type a message..."
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          onChange={(e) => setMessage((e.target as HTMLInputElement).value)}
         />
 
         <button onClick={sendMessage}>Send</button>

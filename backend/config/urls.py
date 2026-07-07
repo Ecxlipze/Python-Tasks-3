@@ -13,4 +13,6 @@ urlpatterns = [
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("api/", include("accounts.urls")),
     path("api/", include("chat.urls")),
+    path("api/", include("notes.urls")),
+    path("api/", include("workspaces.urls")),
 ]
