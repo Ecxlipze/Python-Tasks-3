@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     "accounts",
     "channels",
     "chat",
+    "notes",
+    "workspaces",
 ]
 
 MIDDLEWARE = [
