@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     "chat",
     "notes",
     "workspaces",
+    "notifications",
+    "files",
 ]
 
 MIDDLEWARE = [
@@ -152,3 +154,6 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"

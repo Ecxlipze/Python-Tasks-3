@@ -1,11 +1,17 @@
 from rest_framework import serializers
-from .models import Workspace
+
+from .models import (
+    Workspace,
+    WorkspacePresence,
+)
+
 
 class WorkspaceSerializer(serializers.ModelSerializer):
     owner = serializers.CharField(
         source="owner.username",
         read_only=True,
     )
+
     class Meta:
         model = Workspace
         fields = [
@@ -14,4 +20,20 @@ class WorkspaceSerializer(serializers.ModelSerializer):
             "description",
             "owner",
             "created_at",
+        ]
+
+
+class WorkspacePresenceSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(
+        source="user.username",
+        read_only=True,
+    )
+
+    class Meta:
+        model = WorkspacePresence
+        fields = [
+            "id",
+            "username",
+            "online",
+            "last_seen",
         ]

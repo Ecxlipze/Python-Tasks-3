@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import WorkspacePresence from "@/components/WorkspacePresence";
 type Note = {
   id: number;
   title: string;
@@ -145,6 +146,11 @@ export default function NotesPage() {
   return (
     <main style={{ maxWidth: 700, margin: "40px auto" }}>
       <h1>Shared Notes</h1>
+      {note && (
+  <WorkspacePresence
+    workspaceId={note.workspace}
+  />
+)}
       <p>
         <strong>Workspace:</strong> {note.workspace_name}
       </p>
