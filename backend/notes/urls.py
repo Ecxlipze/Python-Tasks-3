@@ -5,3 +5,4 @@ router = DefaultRouter()
 router.register("notes", NoteViewSet, basename="notes")
 
 urlpatterns = router.urls
+
